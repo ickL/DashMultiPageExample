@@ -2,9 +2,10 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import sys
+import os
 
 ##importing a file from the DashboardData folder. This can be used in the callbacks, layout, or main file
-name = "AppName1"
+name = os.path.dirname(os.path.realpath(__file__)).partition("Apps\\")[-1]
 dataDirectory = sys.argv[0].replace("index.py", "Apps\\" + name + "\\DashboardData\\")
 file = open(dataDirectory + "TextFile.txt", "r")
 print(file.read())
